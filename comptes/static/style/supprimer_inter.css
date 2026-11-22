@@ -1,0 +1,61 @@
+body {
+    background-color: #6B4632;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3C2218;
+    min-height: 100vh;
+}
+
+.container-supprimer-intervenant {
+    width: 900px;
+    height: 500px;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #FFF8DC;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.container-supprimer-intervenant h2 {
+    margin-top: 150px;
+    font-size: xx-large;
+}
+
+.container-supprimer-intervenant p {
+    font-size: large;
+}
+
+.oui_non-intervenant {
+    justify-content: center;
+    display: flex;
+    gap: 200px;
+    margin-top: 100px;
+}
+
+.oui_non-intervenant button {
+    background-color: #D47E30;
+    border: #D47E30;
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.oui_non-intervenant a {
+    background-color: #EECE7B;
+    border: #EECE7B;
+    border-radius: 30px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-flex;
+    text-decoration: none;
+    width: 150px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    color: #3C2218;
+}

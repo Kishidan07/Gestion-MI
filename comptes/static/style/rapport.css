@@ -1,0 +1,310 @@
+/* ================================
+   PAGE RAPPORTS
+================================ */
+
+.rapports {
+    width: 100%;
+    min-height: calc(100vh - 64px);
+    padding: 25px 40px;
+    background-color: #fffaf0;
+    color: #442d1d;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.rapports *,
+.rapports *::before,
+.rapports *::after {
+    box-sizing: border-box;
+}
+
+/* ================================
+   EN-TÊTE
+================================ */
+
+.rapports .rapport-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 25px;
+    background-color: #f5e8d3;
+    box-shadow: 0 2px 8px rgba(68, 45, 29, 0.12);
+    border-radius: 15px;
+}
+
+.rapports .rapport-icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    background-color: #a66a3f;
+    border-radius: 25px;
+}
+
+.rapports .rapport-icone i {
+    font-size: 4rem;
+    color: #fff8dc;
+}
+
+.rapports .rapport-text h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+.rapports .rapport-text p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ================================
+   RECHERCHE ET EXPORT
+================================ */
+
+.rapports .rapport-rechercher {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.rapports .rapport-barre-recherche {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    height: 50px;
+}
+
+.rapports .rapport-barre-recherche input {
+    width: 100%;
+    height: 50px;
+    padding: 10px 55px 10px 20px;
+    border: 1px solid #c8a98b;
+    border-radius: 30px;
+    outline: none;
+    background-color: #fffaf0;
+    color: #442d1d;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.rapports .rapport-barre-recherche input:focus {
+    border-color: #6b4632;
+    box-shadow: 0 0 0 3px rgba(107, 70, 50, 0.15);
+}
+
+.rapports .rapport-barre-recherche i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b4632;
+    pointer-events: none;
+}
+
+.rapports .rapport-exporter {
+    flex-shrink: 0;
+}
+
+.rapports .rapport-export {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 50px;
+    padding: 0 24px;
+    background-color: transparent;
+    border: 2px solid #442d1d;
+    border-radius: 30px;
+    color: #442d1d;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.rapports .rapport-export:hover {
+    background-color: #442d1d;
+    color: #fff8dc;
+}
+
+/* ================================
+   CHIFFRES CLÉS
+================================ */
+
+.rapports .rapport-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.rapports .rapport-stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background-color: #442d1d;
+    color: #fcecCF;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.rapports .rapport-stat > i {
+    font-size: 32px;
+    opacity: 0.9;
+}
+
+.rapports .rapport-stat strong {
+    display: block;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.rapports .rapport-stat span {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.rapports .rapport-stat-total {
+    background-color: #6b4632;
+}
+
+/* ================================
+   CARTE D'UN MATÉRIEL
+================================ */
+
+.rapports .rapport-carte {
+    margin-bottom: 22px;
+    background-color: #fff;
+    border: 1px solid #e6d3b3;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(68, 45, 29, 0.1);
+}
+
+.rapports .rapport-carte-entete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 16px 22px;
+    background-color: #442d1d;
+    color: #fff8dc;
+}
+
+.rapports .rapport-carte-titre {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.rapports .rapport-carte-titre > i {
+    font-size: 26px;
+}
+
+.rapports .rapport-carte-titre strong {
+    display: block;
+    font-size: 18px;
+}
+
+.rapports .rapport-carte-titre span {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.rapports .rapport-carte-total {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    font-size: 14px;
+}
+
+.rapports .rapport-carte-total strong {
+    padding: 6px 16px;
+    background-color: #fcecCF;
+    border-radius: 20px;
+    color: #442d1d;
+    font-size: 16px;
+}
+
+/* ================================
+   LIGNES D'INTERVENTION
+================================ */
+
+.rapports .rapport-lignes {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rapports .rapport-ligne {
+    display: grid;
+    grid-template-columns: 140px 1fr 1fr 160px;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 22px;
+    border-bottom: 1px solid #efe0c6;
+}
+
+.rapports .rapport-ligne:last-child {
+    border-bottom: none;
+}
+
+.rapports .rapport-ligne:hover {
+    background-color: #f5e8d3;
+}
+
+.rapports .rapport-ligne i {
+    margin-right: 6px;
+    color: #6b4632;
+}
+
+.rapports .rapport-calcul {
+    color: #6b4632;
+}
+
+.rapports .rapport-montant {
+    text-align: right;
+    font-size: 16px;
+}
+
+.rapports .rapport-vide {
+    padding: 30px;
+    text-align: center;
+    color: #6b4632;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 1000px) {
+    .rapports .rapport-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px) {
+    .rapports { padding: 18px; }
+    .rapports .rapport-header { flex-direction: column; text-align: center; }
+    .rapports .rapport-rechercher { flex-direction: column; align-items: stretch; }
+    .rapports .rapport-export { justify-content: center; width: 100%; }
+    .rapports .rapport-stats { grid-template-columns: 1fr; }
+    .rapports .rapport-ligne { grid-template-columns: 1fr; gap: 6px; }
+    .rapports .rapport-montant { text-align: left; }
+}
+
+/* ================================
+   IMPRESSION (préparation du PDF)
+================================ */
+
+@media print {
+    .navbar,
+    .rapport-rechercher { display: none !important; }
+
+    .rapports { padding: 0; min-height: auto; }
+    .rapports .rapport-carte { break-inside: avoid; }
+}

@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Modifier un matériel</title>
+
+    <link rel="stylesheet" href="{% static 'style/modifier.css' %}">
+</head>
+
+<body>
+
+    <div class="page-modifier">
+
+        <div class="Modifier">
+
+            <h2>Modifier les informations du matériel</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div>
+                    <label>Numéro de série du matériel</label>
+                    {{ form.numero }}
+                </div>
+
+                <div>
+                    <label>Désignation du matériel</label>
+                    {{ form.designation }}
+                </div>
+
+                <div>
+                    <label>Sa marque</label>
+                    {{ form.marque }}
+                </div>
+
+                <div>
+                    <label>État</label>
+                    {{ form.etat }}
+                </div>
+
+                {{ form.errors }}
+
+                <div class="boutons">
+
+                    <button type="submit" class="ajout">
+                        Enregistrer les modifications
+                    </button>
+
+                    <a href="{% url 'liste_materiels' %}" class="retour">
+                        Annuler
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

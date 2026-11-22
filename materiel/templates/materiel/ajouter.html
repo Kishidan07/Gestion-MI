@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ajouter un matériel</title>
+
+    <link rel="stylesheet" href="{% static 'style/ajouter.css' %}">
+</head>
+
+<body>
+
+    <div class="page-ajouter">
+
+        <div class="Ajouter">
+
+            <h2>Ajouter un matériel</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                {{ form.numero }}
+                {{ form.designation }}
+                {{ form.marque }}
+                {{ form.etat }}
+
+                <div class="boutons">
+                    <button type="submit" class="ajout">
+                        Enregistrer
+                    </button>
+
+                    <button type="button" class="annuler"
+                         onclick="window.location.href='{% url 'liste_materiels' %}'">
+                         Annuler
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+/* ===== PAGE AJOUTER UN MATÉRIEL ===== */
+
+.page-ajouter {
+    background-color: #6B4632;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    color: #442D1D;
+}
+
+/* ===== CONTENEUR ===== */
+
+.page-ajouter .Ajouter {
+    background-color: #fff8dc;
+    width: 100%;
+    max-width: 750px;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    text-align: center;
+}
+
+/* ===== TITRE ===== */
+
+.page-ajouter h2 {
+    font-size: 30px;
+    margin: 0 0 35px;
+    color: #442D1D;
+}
+
+/* ===== FORMULAIRE ===== */
+
+.page-ajouter form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* ===== CHAMPS ===== */
+
+.page-ajouter input,
+.page-ajouter textarea,
+.page-ajouter select {
+    width: 85%;
+    min-height: 48px;
+    padding: 12px 15px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    color: #442D1D;
+    background-color: #fffdf5;
+    border: 2px solid #6B4632;
+    border-radius: 9px;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+/* Effet au clic */
+
+.page-ajouter input:focus,
+.page-ajouter textarea:focus,
+.page-ajouter select:focus {
+    border-color: #D0783B;
+    box-shadow: 0 0 6px rgba(208, 120, 59, 0.4);
+}
+
+/* Liste déroulante */
+
+.page-ajouter select {
+    cursor: pointer;
+}
+
+/* ===== BOUTONS ===== */
+
+.page-ajouter .boutons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.page-ajouter button {
+    min-width: 180px;
+    height: 48px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Bouton enregistrer */
+
+.page-ajouter .ajout {
+    background-color: #D0783B;
+    color: white;
+}
+
+.page-ajouter .ajout:hover {
+    background-color: #A85B2B;
+    transform: translateY(-2px);
+}
+
+/* Bouton annuler */
+
+.page-ajouter .annuler {
+    background-color: #eece7b;
+    color: #442D1D;
+}
+
+.page-ajouter .annuler:hover {
+    background-color: #dfb953;
+    transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+
+    .page-ajouter {
+        padding: 20px 12px;
+    }
+
+    .page-ajouter .Ajouter {
+        padding: 30px 15px;
+    }
+
+    .page-ajouter h2 {
+        font-size: 24px;
+    }
+
+    .page-ajouter input,
+    .page-ajouter select,
+    .page-ajouter textarea {
+        width: 100%;
+    }
+
+    .page-ajouter .boutons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .page-ajouter button {
+        width: 100%;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #6B4632;
+    font-family: Arial, sans-serif;
+}

@@ -1,0 +1,188 @@
+/* ===== PAGE MODIFIER UN INTERVENANT ===== */
+
+.page-modifier-intervenant {
+    background-color: #6B4632;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    color: #442D1D;
+    box-sizing: border-box;
+}
+
+/* ===== CONTENEUR ===== */
+
+.page-modifier-intervenant .Modifier-intervenant {
+    background-color: #fff8dc;
+    width: 100%;
+    max-width: 750px;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* ===== TITRE ===== */
+
+.page-modifier-intervenant h2 {
+    font-size: 30px;
+    margin: 0 0 35px;
+    color: #442D1D;
+}
+
+/* ===== FORMULAIRE ===== */
+
+.page-modifier-intervenant form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* ===== CHAMPS ===== */
+
+.page-modifier-intervenant input,
+.page-modifier-intervenant textarea,
+.page-modifier-intervenant select {
+    width: 85%;
+    min-height: 48px;
+    padding: 12px 15px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    color: #442D1D;
+    background-color: #fffdf5;
+    border: 2px solid #6B4632;
+    border-radius: 9px;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+/* Effet au clic */
+
+.page-modifier-intervenant input:focus,
+.page-modifier-intervenant textarea:focus,
+.page-modifier-intervenant select:focus {
+    border-color: #D0783B;
+    box-shadow: 0 0 6px rgba(208, 120, 59, 0.4);
+}
+
+/* Liste déroulante */
+
+.page-modifier-intervenant select {
+    cursor: pointer;
+}
+
+/* ===== LABELS ===== */
+
+.page-modifier-intervenant label {
+    display: block;
+    width: 85%;
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    color: #442D1D;
+    margin-bottom: 5px;
+}
+
+/* ===== ERREURS ===== */
+
+.page-modifier-intervenant .errorlist {
+    color: #b3261e;
+    font-size: 14px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ===== BOUTONS ===== */
+
+.page-modifier-intervenant .boutons-intervenant {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.page-modifier-intervenant button,
+.page-modifier-intervenant .retour {
+    min-width: 180px;
+    height: 48px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* Bouton enregistrer */
+
+.page-modifier-intervenant .ajout {
+    background-color: #D0783B;
+    color: white;
+}
+
+.page-modifier-intervenant .ajout:hover {
+    background-color: #A85B2B;
+    transform: translateY(-2px);
+}
+
+/* Bouton annuler */
+
+.page-modifier-intervenant .retour {
+    background-color: #eece7b;
+    color: #442D1D;
+}
+
+.page-modifier-intervenant .retour:hover {
+    background-color: #dfb953;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+
+    .page-modifier-intervenant {
+        padding: 20px 12px;
+    }
+
+    .page-modifier-intervenant .Modifier-intervenant {
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+    .page-modifier-intervenant h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .page-modifier-intervenant input,
+    .page-modifier-intervenant textarea,
+    .page-modifier-intervenant select,
+    .page-modifier-intervenant label {
+        width: 100%;
+    }
+
+    .page-modifier-intervenant .boutons-intervenant {
+    flex-direction: column;
+    width: 100%;
+}
+
+.page-modifier-intervenant button,
+.page-modifier-intervenant .retour {
+    width: 100%;
+}
+
+}

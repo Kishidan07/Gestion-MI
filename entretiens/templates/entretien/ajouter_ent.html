@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ajouter un entretien</title>
+
+    <link rel="stylesheet" href="{% static 'style/ajouter_ent.css' %}">
+</head>
+
+<body>
+
+    <div class="page-ajouter-entretien">
+
+        <div class="Ajouter-entretien">
+
+            <h2>Ajouter un entretien</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                {{ form.non_field_errors }}
+
+                {% for field in form %}
+                <div class="champ">
+                    {{ field.label_tag }}
+                    {{ field }}
+
+                    {% for erreur in field.errors %}
+                    <span class="erreur">{{ erreur }}</span>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+
+                <div class="boutons-entretien">
+
+                    <button type="submit" class="ajout">
+                        Enregistrer
+                    </button>
+
+                    <button type="button" class="annuler"
+                        onclick="window.location.href='{% url 'liste_entretiens' %}'">
+                        Annuler
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

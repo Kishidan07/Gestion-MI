@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gestion des intervenants{% endblock %}
+
+{% block body_class %}page-intervenant{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'style/intervenant.css' %}"> {% endblock %}
+
+{% block content %}
+
+<div class="intervenants">
+
+<header class="intervenant-header">
+    <div class="intervenant-icone">
+        <i class="bi bi-person-workspace"></i>
+    </div>
+
+    <div class="intervenant-text">
+        <h1>Gestion des Intervenants</h1>
+        <p>
+            Bienvenue sur la page de gestion des intervenants.
+            Ici, vous pouvez consulter et gérer les informations
+            relatives aux intervenants.
+        </p>
+    </div>
+</header>
+
+<form method="get">
+    <div class="intervenant-rechercher">
+
+        <div class="intervenant-barre-recherche">
+            <input
+                type="text"
+                name="q"
+                value="{{ q }}"
+                placeholder="Rechercher un intervenant"
+            >
+            <i class="bi bi-search"></i>
+        </div>
+
+        <div class="intervenant-ajouter">
+            <a class="intervenant-ajout" href="{% url 'ajouter_intervenant' %}">
+                <i class="bi bi-plus-circle"></i>
+                Ajouter
+            </a>
+        </div>
+
+    </div>
+</form>
+
+<h2>Liste des intervenants</h2>
+
+<table class="intervenant-table">
+
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Nom</th>
+            <th>Taux horaire</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for intervenant in intervenants %}
+
+        <tr>
+            <td>{{ intervenant.numero }}</td>
+            <td>{{ intervenant.nom }}</td>
+            <td>{{ intervenant.taux_horaire }}</td>
+
+            <td class="intervenant-actions">
+                <span>
+                    <a class="intervenant-modifier-button"
+                       href="{% url 'modifier_intervenant' intervenant.numero %}">
+                        <i class="bi bi-pencil"></i>
+                        Modifier
+                    </a>
+
+                    <form method="post"
+                          action="{% url 'supprimer_intervenant' intervenant.numero %}">
+                        {% csrf_token %}
+
+                        <button type="submit" class="intervenant-delete-button">
+                            <i class="bi bi-trash"></i>
+                            Supprimer
+                        </button>
+                    </form>
+                </span>
+            </td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="4">Aucun intervenant trouvé.</td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

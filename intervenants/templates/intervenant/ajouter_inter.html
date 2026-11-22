@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ajouter un intervenant</title>
+
+    <link rel="stylesheet" href="{% static 'style/ajouter_inter.css' %}">
+</head>
+
+<body>
+
+    <div class="page-ajouter-intervenant">
+
+        <div class="Ajouter-intervenant">
+
+            <h2>Ajouter un intervenant</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                {{ form.numero }}
+                {{ form.nom }}
+                {{ form.taux_horaire }}
+
+                <div class="boutons-intervenant">
+
+                    <button type="submit" class="ajout">
+                        Enregistrer
+                    </button>
+
+                    <button type="button" class="annuler"
+                        onclick="window.location.href='{% url 'liste_intervenants' %}'">
+                        Annuler
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

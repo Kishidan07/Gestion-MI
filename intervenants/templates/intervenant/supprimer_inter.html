@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="fr"> 
+<head>     
+<meta charset="UTF-8">     
+<meta name="viewport" content="width=device-width, initial-scale=1.0">     
+<title>Supprimer un intervenant</title>     
+<link rel="stylesheet" href="{% static 'style/supprimer_inter.css' %}"> 
+</head> 
+<body>     
+    <div class="container-supprimer-intervenant">         
+        <div>             
+            <h2>Confirmation de suppression</h2>         
+        </div>
+    <div>
+        <p>
+            Voulez-vous vraiment supprimer l'intervenant
+            {{ intervenant.nom }} de numéro {{ intervenant.numero }} ?
+        </p>
+    </div>
+
+    <div class="oui_non-intervenant">
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Oui, supprimer</button>
+        </form>
+
+        <a href="{% url 'liste_intervenants' %}">Annuler</a>
+    </div>
+</div>
+
+</body>
+</html>

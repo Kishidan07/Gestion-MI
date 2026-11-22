@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Supprimer un entretien</title>
+
+    <link rel="stylesheet" href="{% static 'style/supprimer_ent.css' %}">
+</head>
+
+<body>
+
+    <div class="container-supprimer-entretien">
+
+        <div>
+            <h2>Confirmation de suppression</h2>
+        </div>
+
+        <div>
+            <p>
+                Voulez-vous vraiment supprimer l'entretien
+                de numéro {{ entretien.numero }}, réalisé le
+                {{ entretien.date_intervention|date:"d/m/Y" }}
+                sur le matériel {{ entretien.materiel.numero }}
+                ({{ entretien.materiel.designation }})
+                par {{ entretien.intervenant.nom }} ?
+            </p>
+        </div>
+
+        <div class="oui_non-entretien">
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit">Oui, supprimer</button>
+            </form>
+
+            <a href="{% url 'liste_entretiens' %}">Annuler</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

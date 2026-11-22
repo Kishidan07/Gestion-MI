@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gestion des entretiens{% endblock %}
+
+{% block body_class %}page-entretien{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'style/entretien.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="entretiens">
+
+<header class="entretien-header">
+    <div class="entretien-icone">
+        <i class="bi bi-wrench-adjustable"></i>
+    </div>
+
+    <div class="entretien-text">
+        <h1>Gestion des Entretiens</h1>
+        <p>
+            Bienvenue sur la page de gestion des entretiens.
+            Ici, vous pouvez consulter et gérer les interventions
+            réalisées sur le matériel.
+        </p>
+    </div>
+</header>
+
+<form method="get">
+    <div class="entretien-rechercher">
+
+        <div class="entretien-barre-recherche">
+            <input
+                type="text"
+                name="q"
+                value="{{ q }}"
+                placeholder="Rechercher un entretien"
+            >
+            <i class="bi bi-search"></i>
+        </div>
+
+        <div class="entretien-ajouter">
+            <a class="entretien-ajout" href="{% url 'ajouter_entretien' %}">
+                <i class="bi bi-plus-circle"></i>
+                Ajouter
+            </a>
+        </div>
+
+    </div>
+</form>
+
+<h2>Liste des entretiens</h2>
+
+<table class="entretien-table">
+
+    <thead>
+        <tr>
+            <th>N° entretien</th>
+            <th>Intervenant</th>
+            <th>Matériel</th>
+            <th>Date d'intervention</th>
+            <th>Heures</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for entretien in entretiens %}
+
+        <tr>
+            <td>{{ entretien.numero }}</td>
+            <td>{{ entretien.intervenant.numero }} - {{ entretien.intervenant.nom }}</td>
+            <td>{{ entretien.materiel.numero }} - {{ entretien.materiel.designation }}</td>
+            <td>{{ entretien.date_intervention|date:"d/m/Y" }}</td>
+            <td>{{ entretien.nombre_heures }} h</td>
+
+            <td class="entretien-actions">
+                <span>
+                    <a class="entretien-modifier-button"
+                       href="{% url 'modifier_entretien' entretien.numero %}">
+                        <i class="bi bi-pencil"></i>
+                        Modifier
+                    </a>
+
+                    <form method="post"
+                          action="{% url 'supprimer_entretien' entretien.numero %}">
+                        {% csrf_token %}
+
+                        <button type="submit" class="entretien-delete-button">
+                            <i class="bi bi-trash"></i>
+                            Supprimer
+                        </button>
+                    </form>
+                </span>
+            </td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="6">Aucun entretien trouvé.</td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

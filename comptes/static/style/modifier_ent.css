@@ -1,0 +1,207 @@
+/* ===== PAGE MODIFIER UN ENTRETIEN ===== */
+
+.page-modifier-entretien {
+    background-color: #6B4632;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    color: #442D1D;
+}
+
+/* ===== CONTENEUR ===== */
+
+.page-modifier-entretien .Modifier-entretien {
+    background-color: #fff8dc;
+    width: 100%;
+    max-width: 750px;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    text-align: center;
+}
+
+/* ===== TITRE ===== */
+
+.page-modifier-entretien h2 {
+    font-size: 30px;
+    margin: 0 0 35px;
+    color: #442D1D;
+}
+
+/* ===== FORMULAIRE ===== */
+
+.page-modifier-entretien form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* ===== CHAMPS ===== */
+
+.page-modifier-entretien input,
+.page-modifier-entretien textarea,
+.page-modifier-entretien select {
+    width: 85%;
+    min-height: 48px;
+    padding: 12px 15px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    color: #442D1D;
+    background-color: #fffdf5;
+    border: 2px solid #6B4632;
+    border-radius: 9px;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+/* Effet au clic */
+
+.page-modifier-entretien input:focus,
+.page-modifier-entretien textarea:focus,
+.page-modifier-entretien select:focus {
+    border-color: #D0783B;
+    box-shadow: 0 0 6px rgba(208, 120, 59, 0.4);
+}
+
+/* Liste déroulante */
+
+.page-modifier-entretien select {
+    cursor: pointer;
+}
+
+/* Champ grisé (numéro en modification) */
+
+.page-modifier-entretien input:disabled {
+    background-color: #f1ddb8;
+    color: #6B4632;
+    cursor: not-allowed;
+}
+
+/* ===== LIBELLÉ + CHAMP + ERREUR ===== */
+
+.page-modifier-entretien .champ {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.page-modifier-entretien .champ label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #442D1D;
+}
+
+.page-modifier-entretien .champ input,
+.page-modifier-entretien .champ select {
+    width: 100%;
+}
+
+.page-modifier-entretien .erreur {
+    font-size: 13px;
+    color: #A63D2F;
+}
+
+.page-modifier-entretien .errorlist {
+    width: 85%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    color: #A63D2F;
+}
+
+/* ===== BOUTONS ===== */
+
+.page-modifier-entretien .boutons-entretien {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.page-modifier-entretien button {
+    min-width: 180px;
+    height: 48px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Bouton enregistrer */
+
+.page-modifier-entretien .ajout {
+    background-color: #D0783B;
+    color: white;
+}
+
+.page-modifier-entretien .ajout:hover {
+    background-color: #A85B2B;
+    transform: translateY(-2px);
+}
+
+/* Bouton annuler */
+
+.page-modifier-entretien .annuler {
+    background-color: #eece7b;
+    color: #442D1D;
+}
+
+.page-modifier-entretien .annuler:hover {
+    background-color: #dfb953;
+    transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+
+    .page-modifier-entretien {
+        padding: 20px 12px;
+    }
+
+    .page-modifier-entretien .Modifier-entretien {
+        padding: 30px 15px;
+    }
+
+    .page-modifier-entretien h2 {
+        font-size: 24px;
+    }
+
+    .page-modifier-entretien input,
+    .page-modifier-entretien select,
+    .page-modifier-entretien textarea,
+    .page-modifier-entretien .champ,
+    .page-modifier-entretien .errorlist {
+        width: 100%;
+    }
+
+    .page-modifier-entretien .boutons-entretien {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .page-modifier-entretien button {
+        width: 100%;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #6B4632;
+    font-family: Arial, sans-serif;
+}

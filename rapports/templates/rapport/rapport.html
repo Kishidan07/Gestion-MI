@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Rapports{% endblock %}
+
+{% block body_class %}page-rapport{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'style/rapport.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="rapports">
+
+    <header class="rapport-header">
+        <div class="rapport-icone">
+            <i class="bi bi-file-earmark-bar-graph"></i>
+        </div>
+
+        <div class="rapport-text">
+            <h1>Rapports</h1>
+            <p>
+                Retrouvez ici les interventions réalisées sur chaque matériel,
+                avec l'intervenant concerné et le montant calculé
+                selon son taux horaire.
+            </p>
+        </div>
+    </header>
+
+    <form method="get">
+        <div class="rapport-rechercher">
+
+            <div class="rapport-barre-recherche">
+                <input
+                    type="text"
+                    name="q"
+                    value="{{ q }}"
+                    placeholder="Rechercher un matériel ou un intervenant"
+                >
+                <i class="bi bi-search"></i>
+            </div>
+
+            <div class="rapport-exporter">
+                <button type="button"
+                    class="rapport-export"
+                    onclick="window.location.href='{% url 'exporter_rapport_pdf' %}?q={{ q|urlencode }}'">
+
+                    <i class="bi bi-file-earmark-pdf"></i>
+                    Exporter en PDF
+
+                </button>
+            </div>
+
+        </div>
+    </form>
+
+    <!-- ===== CHIFFRES CLÉS ===== -->
+
+    <section class="rapport-stats">
+
+        <article class="rapport-stat">
+            <i class="bi bi-laptop"></i>
+            <div>
+                <strong>{{ stats.materiels }}</strong>
+                <span>Matériels concernés</span>
+            </div>
+        </article>
+
+        <article class="rapport-stat">
+            <i class="bi bi-wrench-adjustable"></i>
+            <div>
+                <strong>{{ stats.interventions }}</strong>
+                <span>Interventions</span>
+            </div>
+        </article>
+
+        <article class="rapport-stat">
+            <i class="bi bi-clock-history"></i>
+            <div>
+                <strong>{{ stats.heures|floatformat:"-1" }} h</strong>
+                <span>Heures au total</span>
+            </div>
+        </article>
+
+        <article class="rapport-stat rapport-stat-total">
+            <i class="bi bi-cash-stack"></i>
+            <div>
+                <strong>{{ stats.montant|floatformat:"0g" }} Ar</strong>
+                <span>Montant total</span>
+            </div>
+        </article>
+
+    </section>
+
+    <!-- ===== UNE CARTE PAR MATÉRIEL ===== -->
+
+    {% for r in rapports %}
+
+    <article class="rapport-carte">
+
+        <div class="rapport-carte-entete">
+
+            <div class="rapport-carte-titre">
+                <i class="bi bi-laptop"></i>
+                <div>
+                    <strong>{{ r.materiel.numero }}</strong>
+                    <span>{{ r.materiel.designation }}{% if r.materiel.marque %} · {{ r.materiel.marque }}{% endif %}</span>
+                </div>
+            </div>
+
+            <div class="rapport-carte-total">
+                <span>
+                    {{ r.interventions|length }}
+                    intervention{{ r.interventions|length|pluralize }}
+                </span>
+                <span>{{ r.heures|floatformat:"-1" }} h</span>
+                <strong>{{ r.montant|floatformat:"0g" }} Ar</strong>
+            </div>
+
+        </div>
+
+        <ul class="rapport-lignes">
+
+            {% for i in r.interventions %}
+
+            <li class="rapport-ligne">
+
+                <span class="rapport-date">
+                    <i class="bi bi-calendar-event"></i>
+                    {{ i.date_intervention|date:"d/m/Y" }}
+                </span>
+
+                <span class="rapport-intervenant">
+                    <i class="bi bi-person"></i>
+                    {{ i.intervenant.nom }}
+                </span>
+
+                <span class="rapport-calcul">
+                    {{ i.nombre_heures|floatformat:"-1" }} h
+                    × {{ i.taux|floatformat:"0g" }} Ar/h
+                </span>
+
+                <strong class="rapport-montant">
+                    {{ i.montant|floatformat:"0g" }} Ar
+                </strong>
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </article>
+
+    {% empty %}
+
+    <p class="rapport-vide">
+        Aucune intervention enregistrée pour le moment.
+    </p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

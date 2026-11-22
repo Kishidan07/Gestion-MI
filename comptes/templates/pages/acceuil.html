@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Tableau de bord
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ===== EN-TÊTE ===== -->
+
+<section class="entete">
+
+    <div>
+        <h1>Bonjour, {{ user.username|default:"bienvenue" }}</h1>
+
+        <p>Voici l'état de votre parc informatique.</p>
+    </div>
+
+    <div class="actions">
+
+        <a href="{% url 'ajouter_materiel' %}" class="btn btn-plein">
+            <i class="bi bi-plus-lg"></i>
+            Ajouter du matériel
+        </a>
+
+        <a href="#" class="btn btn-contour">
+            <i class="bi bi-file-earmark-plus"></i>
+            Nouveau rapport
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ===== CHIFFRES CLÉS ===== -->
+
+<section class="stats">
+
+    <article class="stat">
+
+        <i class="bi bi-hdd-stack"></i>
+
+        <div>
+            <strong>{{ stats.total|default:0 }}</strong>
+            <span>Équipements au total</span>
+        </div>
+
+    </article>
+
+
+    <article class="stat">
+
+        <i class="bi bi-check-circle"></i>
+
+        <div>
+            <strong>{{ stats.en_service|default:0 }}</strong>
+            <span>En service</span>
+        </div>
+
+    </article>
+
+
+    <article class="stat">
+
+        <i class="bi bi-tools"></i>
+
+        <div>
+            <strong>{{ stats.maintenance|default:0 }}</strong>
+            <span>En maintenance</span>
+        </div>
+
+    </article>
+
+
+    <article class="stat stat-alerte">
+
+        <i class="bi bi-exclamation-triangle"></i>
+
+        <div>
+            <strong>{{ stats.en_panne|default:0 }}</strong>
+            <span>En panne</span>
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- ===== GRILLE PRINCIPALE ===== -->
+
+<section class="grille">
+
+
+    <!-- RÉPARTITION DU MATÉRIEL -->
+
+    <article class="bloc">
+
+        <h2>Répartition du matériel</h2>
+
+        <ul class="barres">
+
+            {% for cat in repartition %}
+
+            <li>
+
+                <div class="barre-info">
+
+                    <span>{{ cat.nom }}</span>
+
+                    <span>{{ cat.nombre }}</span>
+
+                </div>
+
+                <div class="barre">
+
+                    <div class="barre-remplie"
+                         data-pourcentage="{{ cat.pourcentage }}">
+                    </div>
+
+                </div>
+
+            </li>
+
+            {% empty %}
+
+            <li class="vide">
+                Aucun matériel enregistré pour le moment.
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </article>
+
+
+    <!-- ALERTES -->
+
+    <article class="bloc">
+
+        <h2>À surveiller</h2>
+
+        <ul class="alertes">
+
+            {% for alerte in alertes %}
+
+            <li>
+
+                <i class="bi {{ alerte.icone }}"></i>
+
+                <div>
+
+                    <strong>{{ alerte.titre }}</strong>
+
+                    <span>{{ alerte.detail }}</span>
+
+                </div>
+
+            </li>
+
+            {% empty %}
+
+            <li class="vide">
+                Rien à signaler.
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </article>
+
+
+    <!-- DERNIÈRES INTERVENTIONS -->
+
+    <article class="bloc large">
+
+        <div class="bloc-titre">
+
+            <h2>Dernières interventions</h2>
+
+            <a href="#" class="voir-tout">
+                Voir tout
+            </a>
+
+        </div>
+
+        <div class="tableau-scroll">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Matériel</th>
+                        <th>Intervenant</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                        <th>Statut</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for i in interventions %}
+
+                    <tr>
+
+                        <td>{{ i.materiel }}</td>
+
+                        <td>{{ i.intervenant }}</td>
+
+                        <td>{{ i.type }}</td>
+
+                        <td>{{ i.date }}</td>
+
+                        <td>
+                            <span class="badge badge-{{ i.statut_classe }}">
+                                {{ i.statut }}
+                            </span>
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="5" class="vide">
+                            Aucune intervention enregistrée.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </article>
+
+</section>
+
+<script>
+
+    document.querySelectorAll(".barre-remplie[data-pourcentage]")
+    .forEach(function(barre) {
+
+        barre.style.width = barre.dataset.pourcentage + "%";
+
+    });
+
+</script>
+
+{% endblock %}

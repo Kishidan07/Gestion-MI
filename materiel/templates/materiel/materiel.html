@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gestion du matériel{% endblock %}
+
+{% block body_class %}page-materiel{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'style/materiel.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="materiels">
+
+    <header>
+        <div class="pc_icone">
+            <i class="bi bi-pc-display"></i>
+        </div>
+
+        <div class="text">
+            <h1>Gestion du Matériel</h1>
+            <p>
+                Bienvenue sur la page de gestion du matériel.
+                Ici, vous pouvez consulter et gérer les informations
+                relatives au matériel disponible.
+            </p>
+        </div>
+    </header>
+
+    <form method="get">
+        <div class="rechercher">
+
+            <div class="barre-recherche">
+                <input
+                    type="text"
+                    name="q"
+                    value="{{ q }}"
+                    placeholder="Rechercher un matériel"
+                >
+                <i class="bi bi-search"></i>
+            </div>
+
+            <div class="ajouter">
+                <a class="ajout" href="{% url 'ajouter_materiel' %}">
+                    <i class="bi bi-plus-circle"></i>
+                    Ajouter
+                </a>
+            </div>
+
+        </div>
+    </form>
+
+    <h2>Liste des matériels</h2>
+
+    <table>
+
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Désignation</th>
+            <th>Marque</th>
+            <th>État</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for materiel in materiels %}
+
+        <tr>
+            <td>{{ materiel.numero }}</td>
+            <td>{{ materiel.designation }}</td>
+            <td>{{ materiel.marque }}</td>
+            <td>{{ materiel.etat }}</td>
+
+            <td class="actions">
+        <span>
+        <a class="modifier-button"
+           href="{% url 'modifier_materiel' materiel.numero %}">
+            <i class="bi bi-pencil"></i>
+            Modifier
+        </a>
+
+        <form method="post"
+              action="{% url 'supprimer_materiel' materiel.numero %}">
+            {% csrf_token %}
+
+            <button type="submit" class="delete-button">
+                <i class="bi bi-trash"></i>
+                Supprimer
+            </button>
+        </form>
+        </span>
+        </td>       
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="5">Aucun matériel trouvé.</td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+</div>
+
+{% endblock %}

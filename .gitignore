@@ -1,0 +1,16 @@
+# Environnement virtuel 
+venv/
+env/
+
+# Fichiers Python temporaires 
+__pycache__/
+*.py[cod]
+
+# Variables confidentielles
+.env
+
+# Configuration locale
+.vscode/
+
+# Base de données SQLite 
+db.sqlite3

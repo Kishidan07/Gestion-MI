@@ -1,0 +1,248 @@
+/* ================================
+   PAGE ENTRETIENS
+================================ */
+
+.entretiens {
+    width: 100%;
+    min-height: calc(100vh - 64px);   /* remplit tout l'espace sous la navbar */
+    padding: 25px 40px;
+    background-color: #fffaf0;
+    color: #442d1d;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.entretiens *,
+.entretiens *::before,
+.entretiens *::after {
+    box-sizing: border-box;
+}
+
+/* ================================
+   EN-TÊTE
+================================ */
+
+.entretiens .entretien-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 25px;
+    background-color: #f5e8d3;
+    box-shadow: 0 2px 8px rgba(68, 45, 29, 0.12);
+    border-radius: 15px;
+}
+
+.entretiens .entretien-icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    background-color: #a66a3f;
+    border-radius: 25px;
+}
+
+.entretiens .entretien-icone i {
+    font-size: 4rem;
+    color: #fff8dc;
+}
+
+.entretiens .entretien-text h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+.entretiens .entretien-text p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ================================
+   RECHERCHE ET AJOUT
+================================ */
+
+.entretiens .entretien-rechercher {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.entretiens .entretien-barre-recherche {
+    position: relative;
+    flex: 1;                 /* prend toute la largeur disponible */
+    min-width: 0;
+    height: 50px;
+}
+
+.entretiens .entretien-barre-recherche input {
+    width: 100%;
+    height: 50px;
+    padding: 10px 55px 10px 20px;
+    border: 1px solid #c8a98b;
+    border-radius: 30px;
+    outline: none;
+    background-color: #fffaf0;
+    color: #442d1d;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.entretiens .entretien-barre-recherche input:focus {
+    border-color: #6b4632;
+    box-shadow: 0 0 0 3px rgba(107, 70, 50, 0.15);
+}
+
+.entretiens .entretien-barre-recherche i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b4632;
+    pointer-events: none;
+}
+
+.entretiens .entretien-ajouter {
+    flex-shrink: 0;
+}
+
+.entretiens .entretien-ajout {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 50px;
+    padding: 0 24px;
+    background-color: #442d1d;
+    color: #fff8dc;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+}
+
+.entretiens .entretien-ajout:hover {
+    background-color: #6b4632;
+}
+
+/* ================================
+   TABLEAU
+================================ */
+
+.entretiens h2 {
+    margin: 0 0 15px;
+    font-size: 22px;
+}
+
+.entretiens table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    border: 1px solid #e6d3b3;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(68, 45, 29, 0.1);
+}
+
+.entretiens th {
+    padding: 14px 16px;
+    background-color: #442d1d;
+    color: #fff8dc;
+    text-align: left;
+    font-weight: bold;
+}
+
+.entretiens td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #efe0c6;
+}
+
+.entretiens tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.entretiens tbody tr:hover td {
+    background-color: #f5e8d3;
+}
+
+/* Colonne Actions */
+.entretiens th:last-child {
+    text-align: center;
+    width: 280px;
+}
+
+.entretiens table td.entretien-actions {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.entretiens table td.entretien-actions > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.entretiens table td.entretien-actions form {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================================
+   BOUTONS MODIFIER / SUPPRIMER
+================================ */
+
+.entretiens .entretien-modifier-button,
+.entretiens .entretien-delete-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #fff8dc;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.entretiens .entretien-modifier-button {
+    background-color: #6b4632;
+    border-color: #6b4632;
+}
+
+.entretiens .entretien-modifier-button:hover {
+    background-color: #442d1d;
+    border-color: #442d1d;
+}
+
+.entretiens .entretien-delete-button {
+    background-color: #442d1d;
+    border-color: #442d1d;
+}
+
+.entretiens .entretien-delete-button:hover {
+    background-color: #6b4632;
+    border-color: #6b4632;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+    .entretiens { padding: 18px; }
+    .entretiens .entretien-header { flex-direction: column; text-align: center; }
+    .entretiens .entretien-rechercher { flex-direction: column; align-items: stretch; }
+    .entretiens .entretien-ajout { justify-content: center; }
+    .entretiens table { display: block; overflow-x: auto; }
+}

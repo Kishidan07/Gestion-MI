@@ -1,0 +1,92 @@
+body {
+    background-color: #6B4632;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3C2218;
+    min-height: 100vh;
+}
+
+.container-supprimer-entretien {
+    width: 100%;
+    max-width: 900px;
+    min-height: 500px;              /* min-height : le message est plus long que pour un intervenant */
+    padding: 40px 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #FFF8DC;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.container-supprimer-entretien h2 {
+    margin: 0 0 25px;
+    font-size: xx-large;
+}
+
+.container-supprimer-entretien p {
+    margin: 0;
+    font-size: large;
+    line-height: 1.6;
+}
+
+.oui_non-entretien {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    margin-top: 60px;
+}
+
+.oui_non-entretien form {
+    margin: 0;
+}
+
+.oui_non-entretien button {
+    background-color: #D47E30;
+    border: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.oui_non-entretien a {
+    background-color: #EECE7B;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-flex;
+    text-decoration: none;
+    width: 150px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    color: #3C2218;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+
+    .container-supprimer-entretien {
+        padding: 30px 20px;
+    }
+
+    .oui_non-entretien {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 40px;
+    }
+}

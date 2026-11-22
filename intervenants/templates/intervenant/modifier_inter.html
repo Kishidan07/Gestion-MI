@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Modifier un intervenant</title>
+
+    <link rel="stylesheet" href="{% static 'style/modifier_inter.css' %}">
+</head>
+
+<body>
+
+    <div class="page-modifier-intervenant">
+
+        <div class="Modifier-intervenant">
+
+            <h2>Modifier les informations de l'intervenant</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div>
+                    <label>Numéro de l'intervenant</label>
+                    {{ form.numero }}
+                </div>
+
+                <div>
+                    <label>Nom de l'intervenant</label>
+                    {{ form.nom }}
+                </div>
+
+                <div>
+                    <label>Taux horaire</label>
+                    {{ form.taux_horaire }}
+                </div>
+
+                {{ form.errors }}
+
+                <div class="boutons-intervenant">
+
+                    <button type="submit" class="ajout">
+                        Enregistrer les modifications
+                    </button>
+
+                    <a href="{% url 'liste_intervenants' %}" class="retour">
+                        Annuler
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
